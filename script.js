@@ -17,3 +17,11 @@ function divide(number1, number2) {
 let firstNumber = 0;
 let secondNumber = 0;
 const operators = ['+', '-', '*', '/'];
+
+function operate(firstNumber, operator, secondNumber) {
+    if (operator === operators[0]) return add(firstNumber, secondNumber);
+    else if (operator === operators[1]) return subtract(firstNumber, secondNumber);
+    else if (operator === operators[2]) return multiply(firstNumber, secondNumber);
+    else if (operator === operators[3]) return divide(firstNumber, secondNumber);
+    else return;          
+}
