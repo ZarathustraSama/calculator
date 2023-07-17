@@ -3,3 +3,8 @@ body, .calculator, .display, .number-pad, .number, .operator-pad, .operator {
     justify-content: center;
     align-items: center;
 }
+
+.display {
+    font-size: 24px;
+    font-weight: 700;
+}
