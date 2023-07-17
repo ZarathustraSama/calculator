@@ -1,0 +1,5 @@
+body, .calculator, .display, .number-pad, .number, .operator-pad, .operator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
