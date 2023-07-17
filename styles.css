@@ -27,6 +27,16 @@ body, .calculator {
     flex-direction: column;
 }
 
+.calculator-extras {
+    height: 50%;
+    flex-direction: column;
+}
+
+.extra {
+    flex: auto;
+    height: 50%;
+}
+
 .display {
     flex: auto;
     font-size: 32px;
