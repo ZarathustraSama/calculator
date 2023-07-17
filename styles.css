@@ -34,7 +34,7 @@ body, .calculator {
 
 .extra {
     flex: auto;
-    height: 50%;
+    height: 33.3%;
 }
 
 .display {
