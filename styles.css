@@ -2,26 +2,41 @@ body, html {
     height: 100%;
 }
 
-body, .calculator, .display, .number-pad, .number, .operator-pad, .operator {
+body, .calculator {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.display, .number-pad, .operator-pad {
+.display, .number-pad, .number-row, .operator-pad, .operator-row {
+    display: flex;
     flex: auto;
 }
 
 .calculator {
+    width: 33%;
     height: 50%;
     flex-direction: column;
 }
 
 .display {
+    flex: auto;
     font-size: 32px;
     font-weight: 700;
 }
 
-.number-pad {
+.number-pad, .operator-pad {
     flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.number-row, .number, button, .operator-row, .operator {
+    flex: auto;
+    width: 100%;
+    height: 100%;
+}
+
+button {
+    font-size: 32px;
 }
