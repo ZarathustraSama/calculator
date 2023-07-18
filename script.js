@@ -18,8 +18,9 @@ function divide(number1, number2) {
 let firstNumber = null;
 let secondNumber = null;
 let result = null;
-let operatorsArray = ['+', '-', '*', '/'];
+const operatorsArray = ['+', '-', '*', '/'];
 let operator = null;
+const keyboardNumbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 function operate(firstNumber, operator, secondNumber) {
     if (operator === '+') return add(firstNumber, secondNumber);
@@ -114,3 +115,13 @@ function backTrack() {
         display.textContent = '0';
     }
 }
+
+function getKeyboardInput() {
+    window.addEventListener('keyup', (e) => {
+        if (keyboardNumbers.includes(e.key)) updateDisplayValue(e.key);
+        else if (operatorsArray.includes(e.key)) decideOperation(e.key);
+        else if (e.key === '=' || e.key === 'Enter') decideOperation('=');
+    })
+}
+
+getKeyboardInput();
