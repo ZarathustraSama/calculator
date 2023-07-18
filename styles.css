@@ -58,3 +58,15 @@ body, .calculator {
 button {
     font-size: 32px;
 }
+
+.extra > button {
+    color: #008000;
+}
+
+.operator > button {
+    color: #f00;
+}
+
+.number > button, .operator > button, .extra > button, .calculator, .calculator-extras {
+    border: 1px solid #000;
+}
