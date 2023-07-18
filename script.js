@@ -7,12 +7,12 @@ function subtract(number1, number2) {
 }
 
 function multiply(number1, number2) {
-    return number1 * number2;
+    return +(number1 * number2).toFixed(6);
 }
 
 function divide(number1, number2) {
     if (number2 === 0) return 'Not a chance!';
-    return +(number1 / number2).toFixed(10);
+    return +(number1 / number2).toFixed(6);
 }
 
 let firstNumber = null;
@@ -85,6 +85,16 @@ function clearCalculator() {
     secondNumber = null;
     result = null;
     operator = null;
+    decimal = false;
 }
 
 let decimal = false;
+const decimalButton = document.querySelector('#decimal');
+decimalButton.addEventListener('click', enableDecimals);
+
+function enableDecimals() {
+    if (!decimal) {
+        decimal = true;
+        updateDisplayValue('.');
+    }
+}
