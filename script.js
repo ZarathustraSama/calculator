@@ -52,6 +52,7 @@ operators.forEach(symbol => {
 })
 
 function decideOperation(nextOperator) {
+    if (displayValue === '') displayValue = 0;
     if (nextOperator === '=' && operatorsArray.includes(operator)) {
         secondNumber = parseFloat(displayValue);
         displayValue = ''
