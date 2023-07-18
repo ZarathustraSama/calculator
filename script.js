@@ -113,9 +113,11 @@ function backTrack() {
 
 function getKeyboardInput() {
     window.addEventListener('keyup', (e) => {
+        console.log(e)
         if (keyboardNumbers.includes(e.key)) updateDisplayValue(e.key);
         else if (operatorsArray.includes(e.key)) decideOperation(e.key);
         else if (e.key === '=' || e.key === 'Enter') decideOperation('=');
+        else if (e.key === 'Backspace') backTrack();
     })
 }
 
