@@ -98,3 +98,17 @@ function enableDecimals() {
         updateDisplayValue('.');
     }
 }
+
+const backspaceButton = document.querySelector('#backspace');
+backspaceButton.addEventListener('click', backTrack);
+
+function backTrack() {
+    if (displayValue.length > 1) {
+        displayValue = displayValue.replace(/.$/, '');
+        updateDisplayValue(displayValue);
+    }
+    else if (displayValue.length === 1) {
+        displayValue = '';
+        display.textContent = '0';
+    }
+}
