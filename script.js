@@ -52,27 +52,28 @@ operators.forEach(symbol => {
 })
 
 function decideOperation(nextOperator) {
-    if (displayValue === '') displayValue = 0;
-    if (nextOperator === '=' && operatorsArray.includes(operator)) {
-        secondNumber = parseFloat(displayValue);
-        displayValue = ''
-        result = operate(firstNumber, operator, secondNumber);
-        updateDisplayValue(result);
-        firstNumber = result;
-        secondNumber = null;
-        operator = null;
-    }
-    else if (operatorsArray.includes(nextOperator) && operator === null) {
-        operator = nextOperator;
-        firstNumber = parseFloat(displayValue);
-        displayValue = '';
-    }
-    else if (operator !== null) {
-        secondNumber = parseFloat(displayValue);
-        result = operate(firstNumber, operator, secondNumber);
-        updateDisplayValue(result);
-        firstNumber = result;
-        secondNumber = null;
+    if (displayValue !== '') {
+        if (nextOperator === '=' && operatorsArray.includes(operator)) {
+            secondNumber = parseFloat(displayValue);
+            displayValue = ''
+            result = operate(firstNumber, operator, secondNumber);
+            updateDisplayValue(result);
+            firstNumber = result;
+            secondNumber = null;
+            operator = null;
+        }
+        else if (operatorsArray.includes(nextOperator) && operator === null) {
+            operator = nextOperator;
+            firstNumber = parseFloat(displayValue);
+            displayValue = '';
+        }
+        else if (operator !== null) {
+            secondNumber = parseFloat(displayValue);
+            result = operate(firstNumber, operator, secondNumber);
+            updateDisplayValue(result);
+            firstNumber = result;
+            secondNumber = null;
+        }
     }
 }
 
