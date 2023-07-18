@@ -75,4 +75,16 @@ function decideOperation(nextOperator) {
     }
 }
 
+const clearButton = document.querySelector('#clear');
+clearButton.addEventListener('click', clearCalculator);
+
+function clearCalculator() {
+    displayValue = '';
+    display.textContent = '0';
+    firstNumber = null;
+    secondNumber = null;
+    result = null;
+    operator = null;
+}
+
 let decimal = false;
