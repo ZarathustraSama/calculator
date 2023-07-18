@@ -15,9 +15,11 @@ function divide(number1, number2) {
     return number1 / number2;
 }
 
-let firstNumber = 0;
-let secondNumber = 0;
-let operator = '';
+let firstNumber = null;
+let secondNumber = null;
+let result = null;
+let operatorsArray = ['+', '-', '*', '/'];
+let operator = null;
 
 function operate(firstNumber, operator, secondNumber) {
     if (operator === '+') return add(firstNumber, secondNumber);
@@ -29,21 +31,48 @@ function operate(firstNumber, operator, secondNumber) {
 
 let displayValue = '';
 
-const numbers = document.querySelectorAll('.number');
 const display = document.querySelector('.display');
+const numbers = document.querySelectorAll('.number');
 
-numbers.forEach(number => () => {
-    const value = `${number.id}`;
-    addEventListener('click', () => updateDisplayValue(value));
-})
+numbers.forEach(number => {
+    number.addEventListener('click', () => updateDisplayValue(number.id));
+});
 
-function updateDisplayValue (value) {
-    displayValue += value;
-    display.textContent = displayValue;
+function updateDisplayValue(value) {
+    if (displayValue.length <= 4) {
+        displayValue += value;
+        display.textContent = displayValue;
+    };
 }
 
 const operators = document.querySelectorAll('.operator');
 
-operators.forEach(operator => () => {
-
+operators.forEach(symbol => {
+    symbol.addEventListener('click', () => decideOperation(symbol.id))
 })
+
+function decideOperation(nextOperator) {
+    if (nextOperator === '=' && operatorsArray.includes(operator)) {
+        secondNumber = parseFloat(displayValue);
+        displayValue = ''
+        result = operate(firstNumber, operator, secondNumber);
+        updateDisplayValue(result);
+        firstNumber = result;
+        secondNumber = null;
+        operator = null;
+    }
+    else if (operatorsArray.includes(nextOperator) && operator === null) {
+        operator = nextOperator;
+        firstNumber = parseFloat(displayValue);
+        displayValue = '';
+    }
+    else if (operator !== null) {
+        secondNumber = parseFloat(displayValue);
+        result = operate(firstNumber, operator, secondNumber);
+        updateDisplayValue(result);
+        firstNumber = result;
+        secondNumber = null;
+    }
+}
+
+let decimal = false;
